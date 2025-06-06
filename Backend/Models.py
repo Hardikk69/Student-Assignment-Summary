@@ -1,6 +1,7 @@
 from sqlalchemy import (
     Column, Integer, Boolean, ForeignKey, LargeBinary, Text, Float, Time, TIMESTAMP
 )
+from sqlalchemy.sql import func
 from Database import Base
 from sqlalchemy.orm import relationship
 
@@ -12,7 +13,7 @@ class Admin_table(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(Text, nullable=False)
-    school = Column(Text)
+    program = Column(Text)
     password = Column(Text, nullable=False)
     soft_del = Column(Boolean, default=False)
 
@@ -29,14 +30,15 @@ class Teacher(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(Text, nullable=False)
-    school = Column(Text)
+    program = Column(Text)
     password = Column(Text, nullable=False)
     activated_by = Column(
         Integer,
         ForeignKey(f"{SCHEMA}.admin_table.id", ondelete="CASCADE"),
         nullable=True
     )
-    activated_at = Column(TIMESTAMP)
+    activated_at = Column(TIMESTAMP, server_default=func.now())
+    soft_del = Column(Boolean, default=False)
 
     activated_by_admin = relationship(
         "Admin_table",

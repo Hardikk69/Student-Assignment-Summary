@@ -1,0 +1,35 @@
+admin
+{
+  "id":1,
+  "name":"Hardik",
+  "program":"BCA",
+  "password":"123",
+  "soft_del":"False"
+}
+teacher
+{
+  "id":10001,
+  "name":"Hardik",
+  "program":"BCA",
+  "password":"123",
+  "activated_by":1,
+  "soft_del":"False"
+}
+
+subject
+{
+  "id": 1,
+  "name": "BCA",
+  "taught_by": 10001
+}
+
+student
+{
+  "id":22004500210086,
+  "name":"Hardik",
+  "roll_no":18,
+  "phone":"123456789",
+  "program":"BCA",
+  "password":"123",
+  "soft_del":"False"
+}
