@@ -21,12 +21,10 @@ class adminget(admin):
 
 # Teacher
 class teacher(BaseModel):
-    id: int
     name: str
     program: str
     password : str
     activated_by: int
-    soft_del: bool
 
 class teachercreate(teacher):
     pass
@@ -54,13 +52,11 @@ class subjectget(subject):
 
 # Student
 class student(BaseModel):
-    id: int
     name: str
     roll_no: int
     phone : str
     program: str
     password: str
-    soft_del: bool
 
 class studentcreate(student):
     pass
